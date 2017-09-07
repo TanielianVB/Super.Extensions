@@ -1,10 +1,25 @@
-﻿namespace Super.Extensions
+﻿using System;
+
+namespace Super.Extensions
 {
     /// <summary>
     /// Extensions to string.
     /// </summary>
     public static class StringExtensions
     {
+        #region Convert
+
+        /// <summary>
+        /// Converts the specified string, which encodes binary data as base-64 digits, to an equivalent 8-bit unsigned integer array.
+        /// </summary>
+        /// <param name="s">The string to convert.</param>
+        /// <returns>An array of 8-bit unsigned integers that is equivalent to s.</returns>
+        /// <exception cref="System.ArgumentNullException">s is null.</exception>
+        /// <exception cref="System.FormatException">The length of s, ignoring white-space characters, is not zero or a multiple of 4. -or-The format of s is invalid. s contains a non-base-64 character, more than two padding characters, or a non-white space-character among the padding characters.</exception>
+        public static byte[] FromBase64String(this string s) => Convert.FromBase64String(s);
+
+        #endregion
+
         #region String
 
         /// <summary>
