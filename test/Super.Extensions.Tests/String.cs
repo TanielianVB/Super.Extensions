@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using System;
+using Xunit;
 
 namespace Super.Extensions.Tests
 {
@@ -24,12 +25,12 @@ namespace Super.Extensions.Tests
         [InlineData("Test", null)]
         [Trait("string", "FormatWith")]
         [Theory(DisplayName = "FormatWith")]
-        public void FormatWithArgumentNullExceptionErrorTest(string value, object[] args) => Assert.Throws<System.ArgumentNullException>(() => value.FormatWith(args));
+        public void FormatWithArgumentNullExceptionErrorTest(string value, object[] args) => Assert.Throws<ArgumentNullException>(() => value.FormatWith(args));
 
         [InlineData("Test {0}", new object[] { })]
         [Trait("string", "FormatWith")]
         [Theory(DisplayName = "FormatWith")]
-        public void FormatWithFormatExceptionErrorTest(string value, object[] args) => Assert.Throws<System.FormatException>(() => value.FormatWith(args));
+        public void FormatWithFormatExceptionErrorTest(string value, object[] args) => Assert.Throws<FormatException>(() => value.FormatWith(args));
 
         [InlineData(null)]
         [InlineData("")]
