@@ -6,6 +6,31 @@ namespace Super.Extensions.Tests
     {
         #region String
 
+        [InlineData("value", "value")]
+        [InlineData("", "")]
+        [InlineData(null, "")]
+        [Trait("string", "EmptyIfNull")]
+        [Theory(DisplayName = "EmptyIfNull")]
+        public void EmptyIfNullTest(string value, string result) => Assert.Equal(value.EmptyIfNull(), result);
+
+        [InlineData("Test", new object[] { }, "Test")]
+        [InlineData("Test {0}", new object[] { 1 }, "Test 1")]
+        [InlineData("Test {0} {1} {2}", new object[] { 1, 2, 3 }, "Test 1 2 3")]
+        [Trait("string", "FormatWith")]
+        [Theory(DisplayName = "FormatWith")]
+        public void FormatWithTest(string value, object[] args, string result) => Assert.Equal(value.FormatWith(args), result);
+
+        [InlineData(null, new object[] { })]
+        [InlineData("Test", null)]
+        [Trait("string", "FormatWith")]
+        [Theory(DisplayName = "FormatWith")]
+        public void FormatWithArgumentNullExceptionErrorTest(string value, object[] args) => Assert.Throws<System.ArgumentNullException>(() => value.FormatWith(args));
+
+        [InlineData("Test {0}", new object[] { })]
+        [Trait("string", "FormatWith")]
+        [Theory(DisplayName = "FormatWith")]
+        public void FormatWithFormatExceptionErrorTest(string value, object[] args) => Assert.Throws<System.FormatException>(() => value.FormatWith(args));
+
         [InlineData(null)]
         [InlineData("")]
         [Trait("string", "IsNullOrEmpty")]
