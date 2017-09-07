@@ -3,7 +3,7 @@ using Xunit;
 
 namespace Super.Extensions.Tests
 {
-    public class IntExtensionsTests
+    public class DoubleExtensionsTests
     {
         #region Math
 
@@ -12,9 +12,9 @@ namespace Super.Extensions.Tests
         [InlineData(0, 0)]
         [InlineData(1, 1)]
         [InlineData(100, 100)]
-        [Trait("int", "Pow")]
+        [Trait("double", "Pow")]
         [Theory(DisplayName = "Pow")]
-        public void PowTest(int x, double y) => Assert.Equal(Math.Pow(x, y), x.Pow(y));
+        public void PowTest(double x, double y) => Assert.Equal(Math.Pow(x, y), x.Pow(y));
 
         #endregion
     }
