@@ -18,6 +18,120 @@ namespace Super.Extensions.Tests
 
         #endregion
 
+        #region TimeSpan
+
+        [InlineData(-1_000_000_000.1)]
+        [InlineData(-1.1)]
+        [InlineData(0.0)]
+        [InlineData(1.1)]
+        [InlineData(1_000_000_000.1)]
+        [Trait("double", "Milliseconds")]
+        [Theory(DisplayName = "Milliseconds")]
+        public void MillisecondsTest(double value) => Assert.Equal(value.Milliseconds(), TimeSpan.FromMilliseconds(value));
+
+        [InlineData(double.MinValue)]
+        [InlineData(double.MaxValue)]
+        [InlineData(double.NegativeInfinity)]
+        [InlineData(double.PositiveInfinity)]
+        [Trait("double", "Milliseconds")]
+        [Theory(DisplayName = "Milliseconds")]
+        public void MillisecondsOverflowExceptionErrorTest(double value) => Assert.Throws<OverflowException>(() => value.Milliseconds());
+
+        [InlineData(double.NaN)]
+        [Trait("double", "Milliseconds")]
+        [Theory(DisplayName = "Milliseconds")]
+        public void MillisecondsArgumentExceptionErrorTest(double value) => Assert.Throws<ArgumentException>(() => value.Milliseconds());
+
+        [InlineData(-1_000_000_000.1)]
+        [InlineData(-1.1)]
+        [InlineData(0.0)]
+        [InlineData(1.1)]
+        [InlineData(1_000_000_000.1)]
+        [Trait("double", "Seconds")]
+        [Theory(DisplayName = "Seconds")]
+        public void SecondsTest(double value) => Assert.Equal(value.Seconds(), TimeSpan.FromSeconds(value));
+
+        [InlineData(double.MinValue)]
+        [InlineData(double.MaxValue)]
+        [InlineData(double.NegativeInfinity)]
+        [InlineData(double.PositiveInfinity)]
+        [Trait("double", "Seconds")]
+        [Theory(DisplayName = "Seconds")]
+        public void SecondsOverflowExceptionErrorTest(double value) => Assert.Throws<OverflowException>(() => value.Seconds());
+
+        [InlineData(double.NaN)]
+        [Trait("double", "Seconds")]
+        [Theory(DisplayName = "Seconds")]
+        public void SecondsArgumentExceptionErrorTest(double value) => Assert.Throws<ArgumentException>(() => value.Seconds());
+
+        [InlineData(-1_000_000_000.1)]
+        [InlineData(-1.1)]
+        [InlineData(0.0)]
+        [InlineData(1.1)]
+        [InlineData(1_000_000_000.1)]
+        [Trait("double", "Minutes")]
+        [Theory(DisplayName = "Minutes")]
+        public void MinutesTest(double value) => Assert.Equal(value.Minutes(), TimeSpan.FromMinutes(value));
+
+        [InlineData(double.MinValue)]
+        [InlineData(double.MaxValue)]
+        [InlineData(double.NegativeInfinity)]
+        [InlineData(double.PositiveInfinity)]
+        [Trait("double", "Minutes")]
+        [Theory(DisplayName = "Minutes")]
+        public void MinutesOverflowExceptionErrorTest(double value) => Assert.Throws<OverflowException>(() => value.Minutes());
+
+        [InlineData(double.NaN)]
+        [Trait("double", "Minutes")]
+        [Theory(DisplayName = "Minutes")]
+        public void MinutesArgumentExceptionErrorTest(double value) => Assert.Throws<ArgumentException>(() => value.Minutes());
+
+        [InlineData(-1_000_000.1)]
+        [InlineData(-1.1)]
+        [InlineData(0.0)]
+        [InlineData(1.1)]
+        [InlineData(1_000_000.1)]
+        [Trait("double", "Hours")]
+        [Theory(DisplayName = "Hours")]
+        public void HoursTest(double value) => Assert.Equal(value.Hours(), TimeSpan.FromHours(value));
+
+        [InlineData(double.MinValue)]
+        [InlineData(double.MaxValue)]
+        [InlineData(double.NegativeInfinity)]
+        [InlineData(double.PositiveInfinity)]
+        [Trait("double", "Hours")]
+        [Theory(DisplayName = "Hours")]
+        public void HoursOverflowExceptionErrorTest(double value) => Assert.Throws<OverflowException>(() => value.Hours());
+
+        [InlineData(double.NaN)]
+        [Trait("double", "Hours")]
+        [Theory(DisplayName = "Hours")]
+        public void HoursArgumentExceptionErrorTest(double value) => Assert.Throws<ArgumentException>(() => value.Hours());
+
+        [InlineData(-1_000_000.1)]
+        [InlineData(-1.1)]
+        [InlineData(0.0)]
+        [InlineData(1.1)]
+        [InlineData(1_000_000.1)]
+        [Trait("double", "Days")]
+        [Theory(DisplayName = "Days")]
+        public void DaysTest(double value) => Assert.Equal(value.Days(), TimeSpan.FromDays(value));
+
+        [InlineData(double.MinValue)]
+        [InlineData(double.MaxValue)]
+        [InlineData(double.NegativeInfinity)]
+        [InlineData(double.PositiveInfinity)]
+        [Trait("double", "Days")]
+        [Theory(DisplayName = "Days")]
+        public void DaysOverflowExceptionErrorTest(double value) => Assert.Throws<OverflowException>(() => value.Days());
+
+        [InlineData(double.NaN)]
+        [Trait("double", "Days")]
+        [Theory(DisplayName = "Days")]
+        public void DaysArgumentExceptionErrorTest(double value) => Assert.Throws<ArgumentException>(() => value.Days());
+
+        #endregion
+
         #region Units
 
         [InlineData(-100.1)]
