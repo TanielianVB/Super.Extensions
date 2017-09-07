@@ -18,6 +18,76 @@ namespace Super.Extensions.Tests
 
         #endregion
 
+        #region TimeSpan
+
+        [InlineData(-1_000_000_000)]
+        [InlineData(-1)]
+        [InlineData(0)]
+        [InlineData(1)]
+        [InlineData(1_000_000_000)]
+        [Trait("int", "Ticks")]
+        [Theory(DisplayName = "Ticks")]
+        public void TicksTest(int value) => Assert.Equal(value.Ticks(), TimeSpan.FromTicks(value));
+
+        [InlineData(-1_000_000_000)]
+        [InlineData(-1)]
+        [InlineData(0)]
+        [InlineData(1)]
+        [InlineData(1_000_000_000)]
+        [Trait("int", "Milliseconds")]
+        [Theory(DisplayName = "Milliseconds")]
+        public void MillisecondsTest(int value) => Assert.Equal(value.Milliseconds(), TimeSpan.FromMilliseconds(value));
+
+        [InlineData(-1_000_000_000)]
+        [InlineData(-1)]
+        [InlineData(0)]
+        [InlineData(1)]
+        [InlineData(1_000_000_000)]
+        [Trait("int", "Seconds")]
+        [Theory(DisplayName = "Seconds")]
+        public void SecondsTest(int value) => Assert.Equal(value.Seconds(), TimeSpan.FromSeconds(value));
+
+        [InlineData(-1_000_000_000)]
+        [InlineData(-1)]
+        [InlineData(0)]
+        [InlineData(1)]
+        [InlineData(1_000_000_000)]
+        [Trait("int", "Minutes")]
+        [Theory(DisplayName = "Minutes")]
+        public void MinutesTest(int value) => Assert.Equal(value.Minutes(), TimeSpan.FromMinutes(value));
+
+        [InlineData(-1_000_000)]
+        [InlineData(-1)]
+        [InlineData(0)]
+        [InlineData(1)]
+        [InlineData(1_000_000)]
+        [Trait("int", "Hours")]
+        [Theory(DisplayName = "Hours")]
+        public void HoursTest(int value) => Assert.Equal(value.Hours(), TimeSpan.FromHours(value));
+
+        [InlineData(int.MinValue)]
+        [InlineData(int.MaxValue)]
+        [Trait("int", "Hours")]
+        [Theory(DisplayName = "Hours")]
+        public void HoursOverflowExceptionErrorTest(int value) => Assert.Throws<OverflowException>(() => value.Hours());
+
+        [InlineData(-1_000_000)]
+        [InlineData(-1)]
+        [InlineData(0)]
+        [InlineData(1)]
+        [InlineData(1_000_000)]
+        [Trait("int", "Days")]
+        [Theory(DisplayName = "Days")]
+        public void DaysTest(int value) => Assert.Equal(value.Days(), TimeSpan.FromDays(value));
+
+        [InlineData(int.MinValue)]
+        [InlineData(int.MaxValue)]
+        [Trait("int", "Days")]
+        [Theory(DisplayName = "Days")]
+        public void DaysOverflowExceptionErrorTest(int value) => Assert.Throws<OverflowException>(() => value.Days());
+
+        #endregion
+
         #region Units
 
         [InlineData(-100)]

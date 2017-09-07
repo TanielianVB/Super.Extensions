@@ -19,6 +19,57 @@ namespace Super.Extensions
 
         #endregion
 
+        #region TimeSpan
+
+        /// <summary>
+        /// Returns a System.TimeSpan that represents a specified time, where the specification is in units of ticks.
+        /// </summary>
+        /// <param name="value">A number of ticks that represent a time.</param>
+        /// <returns>An object that represents value.</returns>
+        public static TimeSpan Ticks(this int value) => TimeSpan.FromTicks(value);
+        /// <summary>
+        /// Returns a System.TimeSpan that represents a specified number of milliseconds.
+        /// </summary>
+        /// <param name="value">A number of milliseconds.</param>
+        /// <returns>An object that represents value.</returns>
+        /// <exception cref="System.OverflowException">value is less than System.TimeSpan.MinValue or greater than System.TimeSpan.MaxValue.-or-value is System.Double.PositiveInfinity.-or-value is System.Double.NegativeInfinity.</exception>
+        /// <exception cref="System.ArgumentException">value is equal to System.Double.NaN.</exception>
+        public static TimeSpan Milliseconds(this int value) => TimeSpan.FromMilliseconds(value);
+        /// <summary>
+        /// Returns a System.TimeSpan that represents a specified number of seconds, where the specification is accurate to the nearest millisecond.
+        /// </summary>
+        /// <param name="value">A number of seconds, accurate to the nearest millisecond.</param>
+        /// <returns>An object that represents value.</returns>
+        /// <exception cref="System.OverflowException">value is less than System.TimeSpan.MinValue or greater than System.TimeSpan.MaxValue.-or-value is System.Double.PositiveInfinity.-or-value is System.Double.NegativeInfinity.</exception>
+        /// <exception cref="System.ArgumentException">value is equal to System.Double.NaN.</exception>
+        public static TimeSpan Seconds(this int value) => TimeSpan.FromSeconds(value);
+        /// <summary>
+        /// Returns a System.TimeSpan that represents a specified number of minutes, where the specification is accurate to the nearest millisecond.
+        /// </summary>
+        /// <param name="value">A number of minutes, accurate to the nearest millisecond.</param>
+        /// <returns>An object that represents value.</returns>
+        /// <exception cref="System.OverflowException">value is less than System.TimeSpan.MinValue or greater than System.TimeSpan.MaxValue.-or-value is System.Double.PositiveInfinity.-or-value is System.Double.NegativeInfinity.</exception>
+        /// <exception cref="System.ArgumentException">value is equal to System.Double.NaN.</exception>
+        public static TimeSpan Minutes(this int value) => TimeSpan.FromMinutes(value);
+        /// <summary>
+        /// Returns a System.TimeSpan that represents a specified number of hours, where the specification is accurate to the nearest millisecond.
+        /// </summary>
+        /// <param name="value">A number of hours accurate to the nearest millisecond.</param>
+        /// <returns>An object that represents value.</returns>
+        /// <exception cref="System.OverflowException">value is less than System.TimeSpan.MinValue or greater than System.TimeSpan.MaxValue. -or-value is System.Double.PositiveInfinity.-or-value is System.Double.NegativeInfinity.</exception>
+        /// <exception cref="System.ArgumentException">value is equal to System.Double.NaN.</exception>
+        public static TimeSpan Hours(this int value) => TimeSpan.FromHours(value);
+        /// <summary>
+        /// Returns a System.TimeSpan that represents a specified number of days, where the specification is accurate to the nearest millisecond.
+        /// </summary>
+        /// <param name="value">A number of days, accurate to the nearest millisecond.</param>
+        /// <returns>An object that represents value.</returns>
+        /// <exception cref="System.OverflowException">value is less than System.TimeSpan.MinValue or greater than System.TimeSpan.MaxValue. -or-value is System.Double.PositiveInfinity.-or-value is System.Double.NegativeInfinity.</exception>
+        /// <exception cref="System.ArgumentException">value is equal to System.Double.NaN.</exception>
+        public static TimeSpan Days(this int value) => TimeSpan.FromDays(value);
+
+        #endregion
+
         #region Units
 
         /// <summary>
